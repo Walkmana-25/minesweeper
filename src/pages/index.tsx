@@ -11,6 +11,7 @@ const Home = () => {
   const horizontal = 5;
 
   const [bombPos, setBombPos] = useState<number[][]>(generate2DArray(vertical, horizontal, 0));
+  const [userInput, setUesrInput] = useState<number[][]>(generate2DArray(vertical, horizontal, 0));
 
   const [samplePos, setSamplePos] = useState(0);
   console.log(samplePos);
