@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './index.module.css';
 
-const generate2DArray = (m: number, n: number, val = 0) => {
+const generate2DArray = (m: number, n: number, val = 1) => {
   return [...Array(m)].map(() => Array(n).fill(val));
 };
 
@@ -18,16 +18,8 @@ const Home = () => {
   return (
     <div>
       <div className={styles.container}>
-        <div className={styles.sample} style={{ backgroundPosition: `-${30 * samplePos}px 0px` }} />
-        <button onClick={() => setSamplePos((p) => (p + 1) % 14)}>sample</button>
-        <p>{samplePos + 1}</p>
-      </div>
-      <div>
-        {bombPos.map((row) =>
-          row.map(() => {
-            console.log('hi');
-            return null; // Replace void[] with null
-          }),
+        {bombPos.map((row, rowIndex) =>
+          row.map((n, columnIndex) => <p key={`${rowIndex}-${columnIndex}`}>{n}</p>),
         )}
       </div>
     </div>
