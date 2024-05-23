@@ -8,5 +8,14 @@
   padding: 0 0.5rem;
 }
 
-.flame {
+.gameBoardFlame {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #c6c6c6;
+}
+
+.cell {
+  width: 32px;
+  height: 32px;
+  background: red;
 }

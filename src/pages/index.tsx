@@ -10,6 +10,8 @@ const Home = () => {
   const vertical = 5;
   const horizontal = 5;
 
+  const cellSize = 32;
+
   const [bombPos, setBombPos] = useState<number[][]>(generate2DArray(vertical, horizontal, 0));
   const [userInput, setUesrInput] = useState<number[][]>(generate2DArray(vertical, horizontal, 0));
 
@@ -17,9 +19,19 @@ const Home = () => {
   console.log(samplePos);
   return (
     <div className={styles.container}>
-      <div className={styles.container}>
+      <div
+        className={styles.gameBoardFlame}
+        style={{
+          width: horizontal * cellSize,
+          height: vertical * cellSize,
+        }}
+      >
         {bombPos.map((row, rowIndex) =>
-          row.map((n, columnIndex) => <p key={`${rowIndex}-${columnIndex}`}>{n}</p>),
+          row.map((n, columnIndex) => (
+            <div className={styles.cell} key={`${rowIndex}-${columnIndex}`}>
+              {n}
+            </div>
+          )),
         )}
       </div>
     </div>
