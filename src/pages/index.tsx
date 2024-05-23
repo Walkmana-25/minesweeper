@@ -16,7 +16,7 @@ const Home = () => {
   const [samplePos, setSamplePos] = useState(0);
   console.log(samplePos);
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.container}>
         {bombPos.map((row, rowIndex) =>
           row.map((n, columnIndex) => <p key={`${rowIndex}-${columnIndex}`}>{n}</p>),
