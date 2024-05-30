@@ -18,9 +18,11 @@ const Home = () => {
 
   const clickHandler = (row: number, column: number) => {
     const board = structuredClone(userInput);
-    board[row][column]++;
+    board[row][column] = (board[row][column] + 1) % 14;
     setUesrInput(board);
   };
+
+  const cellStyle = (num: number) => {};
 
   console.log(samplePos);
   return (
@@ -44,11 +46,14 @@ const Home = () => {
               11 is smile tile.
               12 is sunglasses tile.
               13 is bad face tile.
+              14 is empty tile.
 
                */}
               <div
                 onClick={() => clickHandler(rowIndex, columnIndex)}
-                style={{ backgroundPosition: `-${30 * userInput[rowIndex][columnIndex]}px 0px` }}
+                style={{
+                  backgroundPosition: `-${30 * userInput[rowIndex][columnIndex]}px 0px`,
+                }}
                 className={styles.inner}
               />
             </div>
