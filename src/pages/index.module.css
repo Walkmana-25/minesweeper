@@ -12,10 +12,18 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #c6c6c6;
+  outline: solid 5px black;
 }
 
 .cell {
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
-  background: red;
+}
+
+.inner {
+  width: 30px;
+  height: 30px;
+  background-image: url('~/src/assets/images/icons.png');
 }

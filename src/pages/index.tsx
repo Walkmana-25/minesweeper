@@ -7,15 +7,15 @@ const generate2DArray = (m: number, n: number, val = 1) => {
 
 const Home = () => {
   //REMOVE THIS
-  const vertical = 5;
-  const horizontal = 5;
+  const vertical = 9;
+  const horizontal = 9;
 
   const cellSize = 32;
 
   const [bombPos, setBombPos] = useState<number[][]>(generate2DArray(vertical, horizontal, 0));
   const [userInput, setUesrInput] = useState<number[][]>(generate2DArray(vertical, horizontal, 0));
-
   const [samplePos, setSamplePos] = useState(0);
+
   console.log(samplePos);
   return (
     <div className={styles.container}>
@@ -29,7 +29,22 @@ const Home = () => {
         {bombPos.map((row, rowIndex) =>
           row.map((n, columnIndex) => (
             <div className={styles.cell} key={`${rowIndex}-${columnIndex}`}>
-              {n}
+              {/*
+              Using CSS Sprite
+              0 ~ 7 is number tile.
+              8 is ? tile.
+              9 is flag tile.
+              10 is bomb tile.
+              11 is smile tile.
+              12 is sunglasses tile.
+              13 is bad face tile.
+
+               */}
+              <div
+                onClick={() => setSamplePos((p) => (p + 1) % 14)}
+                style={{ backgroundPosition: `-${30 * samplePos}px 0px` }}
+                className={styles.inner}
+              />
             </div>
           )),
         )}
