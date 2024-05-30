@@ -16,6 +16,12 @@ const Home = () => {
   const [userInput, setUesrInput] = useState<number[][]>(generate2DArray(vertical, horizontal, 0));
   const [samplePos, setSamplePos] = useState(0);
 
+  const clickHandler = (row: number, column: number) => {
+    const board = structuredClone(userInput);
+    board[row][column]++;
+    setUesrInput(board);
+  };
+
   console.log(samplePos);
   return (
     <div className={styles.container}>
@@ -41,8 +47,8 @@ const Home = () => {
 
                */}
               <div
-                onClick={() => setSamplePos((p) => (p + 1) % 14)}
-                style={{ backgroundPosition: `-${30 * samplePos}px 0px` }}
+                onClick={() => clickHandler(rowIndex, columnIndex)}
+                style={{ backgroundPosition: `-${30 * userInput[rowIndex][columnIndex]}px 0px` }}
                 className={styles.inner}
               />
             </div>
